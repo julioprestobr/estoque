@@ -1,0 +1,29 @@
+HELP.md
+target/
+logs/
+*.log
+.env
+.DS_Store
+
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IntelliJ ###
+.idea
+*.iml
+*.ipr
+*.iws
+
+### VS Code ###
+.vscode/
+
+### Eclipse / STS ###
+.classpath
+.project
+.settings
+.factorypath
+.springBeans
+.sts4-cache
+
+src/main/resources/application.properties
