@@ -53,19 +53,6 @@ public class ProductStockController {
         return "Cache limpo";
     }
 
-    // =========================================================================
-    // GOLD (AccountPayableEnriched)
-    // =========================================================================
-
-    @PostMapping("/enriched/search")
-    @Operation(
-            summary = "Busca contas a pagar enriquecidas com filtros (Gold)",
-            description = SORT_DESCRIPTION
-    )
-    public PageResponse<ProductStockResponse> enrichedSearch(@RequestBody ProductStockPageRequest request) {
-        return productStockService.search(request);
-    }
-
     @PostMapping("/query")
     @Operation(summary = "Executa query dinâmica no Data Lake")
     public QueryResponse query(@RequestBody QueryRequest request) {
