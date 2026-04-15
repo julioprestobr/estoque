@@ -22,13 +22,16 @@ public class ProductStockController {
 
     private final ProductStockService productStockService;
 
-    private static final String SORT_DESCRIPTION = "Campos disponíveis para ordenação (sort): dataEmissao, dataVencimento, dataEntrada, dataCadastro, dataAlteracao, valorTitulo, numeroParcela, diasAtraso. Direções disponíveis: asc, desc. Exemplo: [\"dataVencimento,asc\",\"valorTitulo,asc\",\"diasAtraso,desc\"]";
+    private static final String SORT_DESCRIPTION =
+            "Campos disponíveis para ordenação (sort): " +
+                    "codEmpresa, nomeEmpresa, codProduto, nomeProduto, " +
+                    "qtdEstoque, qtdEstoqueDisponivel, valorEstoque, " +
+                    "custoMedio, precoVenda, dataInventario. " +
+                    "Direções disponíveis: asc, desc. " +
+                    "Exemplo: [\"nomeProduto,asc\",\"qtdEstoque,desc\",\"valorEstoque,desc\"]";
 
     @PostMapping("/search")
-    @Operation(
-            summary = "Busca estoque de produtos com filtros",
-            description = SORT_DESCRIPTION
-    )
+    @Operation(summary = "Busca estoque de produtos com filtros", description = SORT_DESCRIPTION)
     public PageResponse<ProductStockResponse> search(@RequestBody ProductStockPageRequest request) {
         return productStockService.search(request);
     }

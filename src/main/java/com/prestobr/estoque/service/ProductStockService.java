@@ -304,9 +304,18 @@ public class ProductStockService {
         }
 
         // Filtro: estoque zerado
-        if (Boolean.TRUE.equals(request.estoqueZerado())) {
-            if (ps.getQtdEstoque() == null || ps.getQtdEstoque().compareTo(BigDecimal.ZERO) != 0) {
-                return false;
+        if (request.estoqueZerado() != null) {
+
+            BigDecimal estoque = ps.getQtdEstoque();
+
+            if (Boolean.TRUE.equals(request.estoqueZerado())) {
+                if (estoque == null || estoque.compareTo(BigDecimal.ZERO) != 0) {
+                    return false;
+                }
+            } else {
+                if (estoque == null || estoque.compareTo(BigDecimal.ZERO) == 0) {
+                    return false;
+                }
             }
         }
 
