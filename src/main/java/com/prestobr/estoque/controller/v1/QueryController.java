@@ -1,4 +1,4 @@
-package com.prestobr.financeiro.controller.v1;
+package com.prestobr.estoque.controller.v1;
 
 import com.prestobr.estoque.dto.request.QueryRequest;
 import com.prestobr.estoque.dto.response.QueryResponse;
