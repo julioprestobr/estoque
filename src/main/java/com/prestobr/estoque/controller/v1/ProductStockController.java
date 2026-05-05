@@ -1,13 +1,11 @@
 package com.prestobr.estoque.controller.v1;
 
-import com.prestobr.estoque.domain.entity.ProductStock;
 import com.prestobr.estoque.dto.request.ProductStockPageRequest;
 import com.prestobr.estoque.dto.request.QueryRequest;
 import com.prestobr.estoque.dto.response.PageResponse;
 import com.prestobr.estoque.dto.response.ProductStockResponse;
 import com.prestobr.estoque.dto.response.QueryResponse;
 import com.prestobr.estoque.service.ProductStockService;
-import com.prestobr.estoque.service.QueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
