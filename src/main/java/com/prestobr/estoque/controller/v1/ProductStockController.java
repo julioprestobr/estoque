@@ -1,10 +1,8 @@
 package com.prestobr.estoque.controller.v1;
 
 import com.prestobr.estoque.dto.request.ProductStockPageRequest;
-import com.prestobr.estoque.dto.request.QueryRequest;
 import com.prestobr.estoque.dto.response.PageResponse;
 import com.prestobr.estoque.dto.response.ProductStockResponse;
-import com.prestobr.estoque.dto.response.QueryResponse;
 import com.prestobr.estoque.service.ProductStockService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -52,11 +50,5 @@ public class ProductStockController {
     public String clearCache() {
         productStockService.clearCache();
         return "Cache limpo";
-    }
-
-    @PostMapping("/query")
-    @Operation(summary = "Executa query dinâmica no Data Lake")
-    public QueryResponse query(@RequestBody QueryRequest request) {
-        return productStockService.executeQuery(request.getQuery());
     }
 }
