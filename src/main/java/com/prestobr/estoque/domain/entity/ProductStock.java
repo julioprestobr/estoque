@@ -38,6 +38,7 @@ public class ProductStock {
     private String referencia;
     private String codBarras;
     private Integer codGrupo;
+    private String nomeGrupo;
     private Integer codSubgrupo;
     private String marca;
     private String unidadeProduto;

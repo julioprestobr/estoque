@@ -22,6 +22,7 @@ public class ProductStockResponse {
     private String referencia;
     private String codBarras;
     private Integer codGrupo;
+    private String nomeGrupo;
     private Integer codSubgrupo;
     private String marca;
     private String unidadeProduto;
@@ -108,6 +109,7 @@ public class ProductStockResponse {
                 .referencia(ps.getReferencia())
                 .codBarras(ps.getCodBarras())
                 .codGrupo(ps.getCodGrupo())
+                .nomeGrupo(ps.getNomeGrupo())
                 .codSubgrupo(ps.getCodSubgrupo())
                 .marca(ps.getMarca())
                 .unidadeProduto(ps.getUnidadeProduto())

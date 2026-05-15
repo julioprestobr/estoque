@@ -160,6 +160,7 @@ public class ProductStockService {
                 .referencia(getString(record, "referencia"))
                 .codBarras(getString(record, "cod_barras"))
                 .codGrupo(getInteger(record, "cod_grupo"))
+                .nomeGrupo(getString(record, "nome_grupo"))
                 .codSubgrupo(getInteger(record, "cod_subgrupo"))
                 .marca(getString(record, "marca"))
                 .unidadeProduto(getString(record, "unidade_produto"))
