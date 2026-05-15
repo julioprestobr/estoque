@@ -12,19 +12,9 @@ public class ClientConfig {
     @Value("${s3.bucket-name}")
     private String bucketName;
 
-    @Value("${datalake.gold-estoque-produto-base-prefix}")
-    private String goldProductStockPrefix;
-
-    // ==================== DATALAKE CLIENT ====================
-
     @Bean
     public DataLakeClient dataLakeClient(S3Client s3Client) {
-
-        return new DataLakeClient(
-                s3Client,
-                bucketName,
-                goldProductStockPrefix
-        );
+        return new DataLakeClient(s3Client, bucketName);
     }
 
 }

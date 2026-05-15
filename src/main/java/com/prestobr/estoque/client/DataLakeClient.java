@@ -23,25 +23,10 @@ public class DataLakeClient {
 
     private final S3Client s3Client;
     private final String bucketName;
-    private final String goldProductStockPrefix;
 
-    public DataLakeClient(
-            S3Client s3Client,
-            String bucketName,
-            String goldProductStockPrefix
-    ) {
+    public DataLakeClient(S3Client s3Client, String bucketName) {
         this.s3Client = s3Client;
         this.bucketName = bucketName;
-        this.goldProductStockPrefix = goldProductStockPrefix;
-    }
-
-
-    // =========================================================================
-    // GOLD (ProductStock)
-    // =========================================================================
-
-    public List<String> findLatestRunParquetKeys() {
-        return findLatestRunParquetKeysFromPrefix(goldProductStockPrefix);
     }
 
     // =========================================================================
@@ -131,15 +116,7 @@ public class DataLakeClient {
         return allObjects;
     }
 
-    // =========================================================================
-    // GETTERS
-    // =========================================================================
-
     public String getBucketName() {
         return bucketName;
-    }
-
-    public String getGoldProductStockPrefix() {
-        return goldProductStockPrefix;
     }
 }

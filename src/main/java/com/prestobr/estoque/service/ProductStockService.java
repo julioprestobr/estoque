@@ -16,6 +16,7 @@ import org.apache.parquet.avro.AvroParquetReader;
 import org.apache.parquet.hadoop.ParquetReader;
 import org.apache.parquet.hadoop.util.HadoopInputFile;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.ApplicationContext;
@@ -43,6 +44,9 @@ public class ProductStockService {
 
     private final DataLakeClient dataLakeClient;
     private final ApplicationContext applicationContext;
+
+    @Value("${datalake.gold-estoque-produto-base-prefix}")
+    private String goldProductStockPrefix;
 
     public ProductStockService(DataLakeClient dataLakeClient, ApplicationContext applicationContext) {
         this.dataLakeClient = dataLakeClient;
@@ -88,7 +92,7 @@ public class ProductStockService {
 
     @Cacheable("product-stock")
     public List<ProductStock> loadAll() {
-        List<String> latestRunKeys = dataLakeClient.findLatestRunParquetKeys();
+        List<String> latestRunKeys = dataLakeClient.findLatestRunParquetKeysFromPrefix(goldProductStockPrefix);
 
         if (latestRunKeys.isEmpty()) {
             log.warn("Nenhum arquivo Parquet encontrado no Data Lake Gold (estoque)");
